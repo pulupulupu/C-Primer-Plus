@@ -13,7 +13,7 @@ int main(void)
     for(int i:number)
        cout<<i<<endl;
        */
-    for (int i: { 0,1,2,3,4,5,6,7,8,9})
+    for (int i: { 0,1,2,3,4,5,6,7,8,9}) 
        cout<<i<<endl;
     system("pause");
     return 0;
