@@ -19,8 +19,9 @@ vector<int> &copy(vector<int> &temp)
 
 int main(void)
 {
-    vector<int> temp={1,2,3,4,5,6,7};
-    vector<char> charc={'a','b','c','d'};
+    //下面两个未初始化
+    vector<int> temp;
+    vector<char> charc;
     //print(charc);
     vector<int> change=copy(temp);
     for(int i:temp)
