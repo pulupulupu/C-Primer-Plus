@@ -1,4 +1,5 @@
 ﻿  Class.cpp
+e:\c++ primer plus\code\membercard\membercard\class.cpp(115): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
   源.cpp
   正在生成代码...
-  MemberCard.vcxproj -> E:\程序\MemberCard\Debug\MemberCard.exe
+  MemberCard.vcxproj -> E:\C++ Primer Plus\code\MemberCard\Debug\MemberCard.exe

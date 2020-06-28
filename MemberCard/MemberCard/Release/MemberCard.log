@@ -1,0 +1,7 @@
+﻿  Class.cpp
+e:\c++ primer plus\code\membercard\membercard\class.cpp(115): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+  源.cpp
+  正在生成代码
+  All 228 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  MemberCard.vcxproj -> E:\C++ Primer Plus\code\MemberCard\Release\MemberCard.exe

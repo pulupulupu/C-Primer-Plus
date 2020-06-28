@@ -39,7 +39,28 @@ Members::Members(int MemberNumber,string Name,string PassCode,string PhoneNumber
 	this->MemberName = Name;
 	this->PassCode = PassCode;
 	this->PhoneNumber = PhoneNumber;
-
+}
+void Members::Change_Pass_Code()
+{
+	string TempPassCode,NewPasscode,temp;
+	cout << "please input your passcode : " << endl;
+	cin >> TempPassCode;
+	if (TempPassCode == PassCode)
+	{
+		cout << "please input your new passcode:";
+		cin >> NewPasscode;
+		cout << "please input again:";
+		cin >> temp;
+		if (NewPasscode == temp)
+		{
+			
+			PassCode = NewPasscode;
+			cout << "changed your passcode" << endl;
+		}
+		else
+			cout << "the code does not match, passcode change failed!" << endl;
+	}
+	return;
 }
 Members::~Members()
 {
@@ -57,7 +78,8 @@ MemberCard::MemberCard(int MemberNumber,string MemberName, string PassCode, stri
 	balance = 0;
 	income = 0;
 	outcome = 0;
-	this->MemberNumber;
+	this->MemberNumber=MemberNumber;
+	this->MemberPoints = 0;
 	this->MemberName = MemberName;
 	this->PassCode = PassCode;
 	this->PhoneNumber = PhoneNumber;
@@ -67,9 +89,9 @@ MemberCard::MemberCard(int MemberNumber,string MemberName, string PassCode, stri
 ostream&operator<<(ostream&output, const MemberCard& Membercard)
 {
 	//output << "the information of member:" << endl;
-	//output.fill(' ');
-	//output <<left<<setw(15)<< "number" << setw(15) << "name" << setw(15) << "phone" << "balance" << endl;
-	output <<left<<setw(15)<<Membercard.MemberNumber<<setw(15)<<Membercard.MemberName <<  setw(15) << Membercard.PhoneNumber << Membercard.balance << endl;
+	//output.fill(' '); 
+	output <<left<<setw(15)<< "number" << setw(15) << "name" << setw(15) <<"Member points"<<setw(15)<< "phone" << "balance" << endl;
+	output <<left<<setw(15)<<Membercard.MemberNumber<<setw(15)<<Membercard.MemberName <<setw(15)<<Membercard.MemberPoints<<  setw(15) << Membercard.PhoneNumber << Membercard.balance << endl;
 	return output;
 }
 void MemberCard::recharge()
@@ -78,7 +100,7 @@ void MemberCard::recharge()
 	cin >> income;
 	balance = balance + income;
 	cout << "your balance : " << balance << endl;
-	if (income > 10000)    //一次性氪金10000块，升级成为vip
+	if (income >=10000)    //一次性氪金10000块，升级成为vip
 		MemberPriority = vip;
 } 
 void MemberCard::cost()
@@ -90,6 +112,7 @@ void MemberCard::cost()
 	{
 		cout << "please input the money you cost : " << endl;
 		cin >> outcome;
+		MemberPoints += outcome;
 		if (outcome > balance)
 		{
 			cout << "your balance is not enough ! " << endl;
@@ -97,8 +120,9 @@ void MemberCard::cost()
 		else
 		{
 			if (MemberPriority == vip)
-				balance = balance - 0.3*outcome;
-			balance = balance - outcome;
+				balance = balance - 0.7*outcome;
+			else
+				balance = balance - outcome;
 			cout << "your balance : " << balance;
 		}
 	}
@@ -107,5 +131,24 @@ void MemberCard::cost()
 		cout << "your code is wrong ! " << endl;
 	}
 }
-void MemberCard::query() { cout << "your balance : " << balance; }
+void MemberCard::query()
+{
+	cout << "your balance : " << balance;
+}
+void MemberCard::Exchange()
+{
+	string TempPassCode;
+	cout << "please input your passcode : " << endl;
+	cin >> TempPassCode;
+	if (TempPassCode == PassCode)
+	{
+		if (MemberPoints >= 10000)
+		{
+			MemberPoints -= 10000;
+			cout << "Exchanging your member points into a doll" << endl;
+		}
+		else
+			cout << "your member points is not enough!" << endl;
+	}
+}
 string MemberCard::get_membername() { return MemberName; }

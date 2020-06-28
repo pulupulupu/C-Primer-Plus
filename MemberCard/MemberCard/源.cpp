@@ -4,7 +4,7 @@
 #include"Class.h"
 
 using namespace std;
-void FindMember(vector<MemberCard>&,bool);
+void FindMember(vector<MemberCard>&,string);
 
 
 
@@ -15,7 +15,7 @@ int main(void)
 	do
 	{
 		cout << "please choice:\n";
-		cout << "1 : new member, 2 : recharge, 3 : purchase , 4 :list all members,other number is over! " << endl;
+		cout << "1 : new member, 2 : recharge, 3 : purchase , 4 :exchange member points to a doll 5:list all members,6:change passcode other number is over! " << endl;
 		cin >> choice;
 		switch (choice)
 		{
@@ -33,18 +33,21 @@ int main(void)
 			MemberCard NewMemberCard(MemberNumber,MemberName, PassCode, PhoneNumber); //创建新会员
 			MemberCards.push_back(NewMemberCard); //将会员添加到会员链表中
 
-			cout.fill(' ');//控制输出格式
-			cout << left << setw(15) << "number" << setw(15) << "name" << setw(15) << "phone" << "balance" << endl;
+			//cout.fill(' ');//控制输出格式
+			//cout << left << setw(15) << "number" << setw(15) << "name" << setw(15) << "phone" << "balance" << endl;
 			cout << NewMemberCard << endl;
 			break;
 		}
 		case 2:
-			FindMember(MemberCards,true);
+			FindMember(MemberCards,"recharge");
 			break;
 		case 3:
-			FindMember(MemberCards,false);
+			FindMember(MemberCards,"cost");
 			break;
-		case 4://列出所有会员名单
+		case 4:
+			FindMember(MemberCards, "exchange");
+			break;
+		case 5://列出所有会员名单
 		{
 			cout.fill(' ');
 			cout << left << setw(15) << "number" << setw(15) << "name" << setw(15) << "phone" << "balance" << endl;
@@ -52,13 +55,16 @@ int main(void)
 			  cout << i << endl;
 			break;
 		}
+		case 6:
+			FindMember(MemberCards, "ChangePasscode");
+			break;
 		default:
 			choice = 0;
 		}
 	}while (choice);
 	return 0;
 }
-void FindMember(vector<MemberCard>& MemberCards,bool LoginCode)
+void FindMember(vector<MemberCard>& MemberCards,string LoginCode)
 {
 	string TempMemberName;
 	cout << "please input your name : " << endl;
@@ -67,10 +73,14 @@ void FindMember(vector<MemberCard>& MemberCards,bool LoginCode)
 	{
 		if (TempMemberName == i.get_membername())
 		{
-			if (LoginCode)
+			if (LoginCode == "recharge")
 				i.recharge();
-			else
+			else if (LoginCode == "cost")
 				i.cost();
+			else if(LoginCode == "exchange")
+				i.Exchange();
+			else if(LoginCode=="ChangePasscode")
+				i.Change_Pass_Code();
 			break;
 		}
 	}
