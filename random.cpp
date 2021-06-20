@@ -9,11 +9,11 @@ int main(void)
  srand ((unsigned) time(NULL));
  int i=rand()%2;
  if(i==0)
-  std::cout<<"ÕÅÓî"<<std::endl;
+  std::cout<<"Ã•Ã…Ã“Ã®"<<std::endl;
   else
   {
     //std::cout<<"A"<<endl;
-      std::cout<<"ÀîÓÀÀÖ"<<std::endl;
+      std::cout<<"Ã€Ã®Ã“Ã€Ã€Ã–"<<std::endl;
   }
 system("pause");
   return 0;

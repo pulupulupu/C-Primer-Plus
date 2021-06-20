@@ -122,7 +122,7 @@ int main(void)
    //BubbleSort(A,10);
      // InsertSort(A,10);
    // SelectSort(A,10);
-    HeapSort(A,10);   //堆排序的排序范围为[1,n-1] 因此，第一个元素无法被排到
+    HeapSort(A,10);   //鍫嗘帓搴忕殑鎺掑簭鑼冨洿涓篬1,n-1] 鍥犳锛岀涓�涓厓绱犳棤娉曡鎺掑埌
     std::cout<<std::endl;
     for(int i=0;i<10;i++)
     {

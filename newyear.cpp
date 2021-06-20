@@ -56,7 +56,7 @@ int main(void)
   while(!ori.eof())
     {
         c=ori.get();
-        c=c xor 2017;
+        //c=c xor 2017;
         des<<c;
     }
     ori.close();

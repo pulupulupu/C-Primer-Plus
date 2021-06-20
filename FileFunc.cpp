@@ -26,7 +26,7 @@ int main(void)
     for (int i=0;i<LIMIT;i++)
     {
         cout<<"Eyepiece # "<<i+1<<":";
-        cin>>esp[i]£»
+        cin>>esp[i];
     } 
     file_it(fout,objective,esp,LIMIT);
     file_it(cout,objective,esp,LIMIT);
