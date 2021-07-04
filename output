@@ -1,0 +1,12 @@
+#ifndef OUTPUT
+#define OUTPUT
+#endif
+
+#include<iostream>
+void Hello_world()
+{
+   std::cout<<"Hello World"<<std::endl;
+   return ;
+}
+
+
