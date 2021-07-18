@@ -13,4 +13,4 @@ int main(void)
     cout<<"long is:"<<n_long<<" the size of it is: "<<sizeof(long) <<" bytes."<<endl;
     cout<<"long long is:"<<n_llong<<" the size of it is: "<<sizeof(long long) <<" bytes."<<endl;
     return 0;
-}
+}  
